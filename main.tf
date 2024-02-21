@@ -13,7 +13,7 @@ resource "aws_instance" "ubuntu" {
 
 resource "aws_config_configuration_recorder_status" "foo" {
   name       = aws_config_configuration_recorder.foo.name
-  is_enabled = true
+  is_enabled = false
   depends_on = [aws_config_delivery_channel.foo]
 }
 
