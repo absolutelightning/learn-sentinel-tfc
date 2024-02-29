@@ -2,13 +2,16 @@ provider "aws" {
   region = var.region
 }
 
-resource "aws_instance" "ubuntu" {
-  ami                    = "ami-0f082e587882aed8c"
-  instance_type          = var.instance_type
+resource "aws_cloudtrail" "example" {
+  name                          = "example"
+  s3_bucket_name                = aws_s3_bucket.example.id
+  s3_key_prefix                 = "prefix"
+  include_global_service_events = false
+}
 
-  tags = {
-    Name = var.instance_name
-  }
+resource "aws_s3_bucket" "example" {
+  bucket        = "tf-test-trail"
+  force_destroy = true
 }
 
 resource "aws_s3_bucket" "example" {
