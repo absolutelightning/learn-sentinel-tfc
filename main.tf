@@ -10,11 +10,6 @@ resource "aws_cloudtrail" "example" {
 }
 
 resource "aws_s3_bucket" "example" {
-  bucket        = "tf-test-trail"
-  force_destroy = true
-}
-
-resource "aws_s3_bucket" "example" {
   bucket = "example"
 }
 
